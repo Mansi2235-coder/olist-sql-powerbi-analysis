@@ -20,7 +20,7 @@ Analysis of the public Brazilian e-commerce dataset by Olist (about 100,000 orde
 - **Retention:** Only 3.0% of customers order more than once (2,801 of 93,358), so most revenue comes from one-time buyers.
 
 ## Method
-- Loaded the CSV files into SQLite and wrote SQL queries (joins, aggregations, CASE WHEN, subqueries): see 'olist_queries.sql'.
+- Loaded the CSV files into SQLite and wrote SQL queries (joins, aggregations, CASE WHEN, subqueries): see **olist_queries.sql**.
 - Exported the query results and built a Power BI dashboard: see `olist_dashboard.pbix`.
 - Revenue figures use delivered orders only, except the category chart, which includes all order statuses.
 
