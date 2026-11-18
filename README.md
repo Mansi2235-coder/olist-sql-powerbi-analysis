@@ -20,7 +20,7 @@ Analysis of the public Brazilian e-commerce dataset by Olist (about 100,000 orde
 - **Retention:** Only 3.0% of customers order more than once (2,801 of 93,358), so most revenue comes from one-time buyers.
 
 ## Method
-- Loaded the CSV files into SQLite and wrote SQL queries (joins, aggregations, CASE WHEN, subqueries): see `olist_queries.sql`.
+- Loaded the CSV files into SQLite and wrote SQL queries (joins, aggregations, CASE WHEN, subqueries): see 'olist_queries.sql'.
 - Exported the query results and built a Power BI dashboard: see `olist_dashboard.pbix`.
 - Revenue figures use delivered orders only, except the category chart, which includes all order statuses.
 
@@ -29,3 +29,21 @@ SQL (SQLite, DB Browser), Power BI Desktop
 
 ## Data
 Brazilian E-Commerce Public Dataset by Olist, from Kaggle: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+## Data quality checks
+
+Before the analysis, I checked the data in the SQLite database with the queries in `data_quality_checks.sql`.
+
+| Check | Result |
+|---|---|
+| Row counts | orders 99,441; order_items 112,650; order_reviews 99,224; customers 99,441 |
+| Duplicate orders | None |
+| Delivered orders with no delivery date | 8 |
+| Order items with no matching order | 0 |
+| Orders with no matching customer | 0 |
+| Orders delivered before they were purchased | 0 |
+| Review scores outside 1 to 5 | 0 |
+
+Notes:
+- 8 orders are marked "delivered" but have no delivery date. They are left out of the delivery time analysis.
+- There are fewer reviews (99,224) than orders (99,441), because some orders have no review.
